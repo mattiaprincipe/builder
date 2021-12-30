@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --bg: #f8f6f6;
+    --bg1: #eff4ff;
+    --bg2: #d9e5fa;
+    --border: #a2a2a2;
+    --text: #0f2152;
+    --cancel: #ab1415;
+    --save: #00b506;
+    --cta: #3269d8;
+}
+
+html {
+    background-color: var(--bg)}
+body{
+    background-color: var(--bg) !important;
+    margin: 0 auto;
+    max-width: 1300px;
+    min-height: 100vh;
+}
+.wrapper{
+    margin: 10px auto;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*----  SEZIONE HEADER  ----*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    height: 100px;
+}
+
+.header img {
+    width: auto;
+}
+
+/*----  Componente TITOLO ----*/
+
+
+.titolo {
+    width: fit-content;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.titolo > * {
+    margin: 20px 5px;
+}
+.linea {
+    width: 40px;
+    height: 1px;
+    background-color: var(--border);
+}
+.titolo-testo{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: var(--text);
+}
+
+.workout {
+    font-size: 36px;
+}
+/*----  SEZIONE ANAGRAFICA ----*/
+
+.sezione-anagrafica{
+    width: 1200px;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.anagrafica-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.anagrafica-inner > label {
+    color: var(--border);
+}
+.anagrafica-inner > label > input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    margin-top: 5px;
+}
+
+/*----  Componente divisorio schema ----*/
+
+
+.schema-titolo {
+    margin-top: 60px;
+    position: relative;
+    width: 600px;
+    height: 60px;
+}
+.schema-titolo > * {
+    color: white;
+    position: absolute;
+}
+.sfera {
+    width: 60px;
+    height: 60px;
+    background-color: var(--text);
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.linea-schema {
+    height: 3px;
+    width: 580px;
+    background: var(--text);
+    left: 10px;
+    top: 27.5px;
+}
+.schema-titolo > h2 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+    font-weight: normal;
+}
+.schema-titolo > h5 {
+    top: -20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+    color: var(--text);
+}
+.appendice {
+    width: 15px;
+    height: 15px;
+    background-color: var(--text);
+    border-radius: 50%;
+    right: 9px;
+    top: 23px;
+}
+
+/*----  SEZIONE SCHEDA INTERNA  ----*/
+.schema {
+
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.schema-lista {
+    margin-top: 20px;
+    min-height: 80px;
+    display: grid;
+    width: 100%;
+    border-radius: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+    padding: 30px;
+}
+.card {
+    width: 260px;
+    height: 380px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid var(--border);
+    position: relative;
+    font-size: 16px;
+}
+.card img {
+    width: 260px;
+    height: 180px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid var(--border);
+    top: -1px;
+    left: -1px;
+    position: absolute;
+}
+.card h4 {
+    position: absolute;
+    width: fit-content;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-weight: 500;
+}
+.card-tabella {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.tabella{
+    text-align: center;
+    display: grid;
+    grid-template-columns: .8fr 2fr .8fr;
+    grid-gap: 10px;
+    bottom: 3px;
+    padding: 10px;
+}
+.card button {
+    position: absolute;
+    color: var(--border);
+    top: 14px;
+    right: 14px;
+    padding: 6px;
+    border-radius: 10px;
+    outline: 0;
+    border: 1px solid var(--border);
+}
+.bg1{
+    padding: 2px;
+    background-color: var(--bg1);
+    border-radius: 10px;
+}
+.bg2{
+    padding: 2px;
+    background-color: var(--bg2);
+    border-radius: 10px;
+}
+/*--    BOTTONI SCHEMA --*/
+.schema-controlli{
+    display: flex;
+    margin-bottom: 20px;
+}
+.schema-controlli > * {
+    width: 200px;
+    margin: 10px;
+}
+.elimina-schema {
+    color: var(--cancel);
+    border: 1px solid var(--cancel);
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 10px;
+}
+.elimina-schema:hover {
+    background-color: var(--cancel);
+    border: 1px solid transparent;
+    color: white;
+}
+.elimina-esercizio > i {
+    font-size: 22px;
+}
+.elimina-esercizio:hover {
+    background-color: var(--cancel);
+    color: white;
+    border: 1px solid var(--cancel);
+}
+.aggiungi-esercizio {
+    background-color: var(--cta);
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+/*----  Overlay ----*/
+.overlay {
+    background-color: rgba(0, 0, 0, .3);
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+/*---- Menù ----*/
+.popup{
+    height: fit-content;
+    width: 400px;
+    background-color: var(--bg);
+    border-radius: 10px;
+    border: 1px solid var(--border);display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+.popup-tabella {
+    width: 100%;
+}
+.popup-tabella-inner{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 0.2fr .8fr 2fr .8fr;
+    grid-gap: 10px;
+    bottom: 3px;
+
+}
+.popup-tabella > .popup-tabella-inner > input {
+    width: 100%;
+    border-radius: 10px;
+    outline: 0;
+    border: 1px solid var(--border);
+    padding: 10px;
+    line-height: 16px;
+    font-size: 16px;
+}
+.cella1 , .cella2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--border);
+    border-radius: 10px;
+    color: white;
+}
+.form {
+    width: 100%;
+}
+.esercizi-lista > h3 {
+    font-weight: 500;
+    margin-top: 20px;
+    color: var(--text);
+}
+.esercizi-lista > select {
+    width: 89%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.popup-tabella > h3 {
+    margin: 10px auto 20px auto;
+    font-weight: 500;
+    color: var(--text);
+}
+.popup-controlli {
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.popup-controlli button{
+    width: 45%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.popup-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.salva {
+    background-color: var(--save);
+}
+.annulla {
+    background-color: var(--cancel);
+}
+
+/*----      AGGIUNGI SCHEMA     ----*/
+
+.cta-nuovo-schema {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    text-align: center;
+    width: 600px;
+    height: 130px;
+    border: 1px dotted var(--border);
+    border-radius: 10px;
+    color: var(--border);
+}
+.cta-nuovo-schema > button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: var(--border);
+    background-color: transparent;
+    font-size: 20px;
+    line-height: 50px;
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+}
+.cta-nuovo-schema > button:hover {
+    background-color: var(--text);
+    color: white;
+    border: 1px solid transparent;
+    transition: all 0.5s ease;
+}
+.cta-nuovo-schema > button:hover p {
+    color: var(--text);
+}
+#stampaPDF {
+    background-color: var(--save);
+    margin: auto;
+    border-radius: 10px;
+    border: 0;
+    width: 200px;
+    height: 50px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 50px;
+}
+#stampaPDF i {
+    font-size: 30px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+/* DIALOG COMPONENT*/
+.dialog {
+    width: 500px;
+    height: 220px;
+    background-color: var(--bg);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.dialog p {
+    text-align: center;
+    color: var(--text);
+}
+.dialog .titolo{
+    margin: 0 auto;
+}
+.dialog-controlli {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+.dialog-controlli button {
+    width: 160px;
+    padding: 10px;
+    margin: 25px 10px;
+    border-radius: 10px;
+    border: 0;
+}
+.dialog-elimina {
+    border: 1px solid var(--cancel) !important;
+    color: var(--cancel);
+}
+.dialog-elimina:hover {
+    background-color: var(--cancel);
+    border: 1px solid transparent;
+    color: white;
+}
