@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF Trainer Workout Builder v1.0</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+</head>
+<body id="print">
+    <div class="wrapper">
+        <header>
+            <img src="assets/img/logo2.png" style="height: 50%;" alt="Flavio Sannino Personal Trainer">
+            <img src="assets/img/logo.png" style="height: 90%;" alt="SF Logo">
+            <div class="data">Lunedi, 21 Dicembre 2021</div>
+        </header>
+        <br>
+        <section class="sezione-anagrafica">
+            <div class="titolo">
+                <div class="linea"></div>
+                <div class="titolo-testo">Anagrafica Cliente</div>
+                <div class="linea"></div>
+            </div>
+            <form name="anagrafica">
+                <div class="anagrafica-inner">
+                    <label style="width: fit-content;" for="name">Nome<br>
+                        <input style="width: 170px; margin-right: 10px;" type="text" name="name" >
+                    </label>
+                    <label style="width: fit-content;" for="cognome">Cognome<br>
+                        <input style="width: 170px; margin-right: 10px;" type="text" name="cognome" >
+                    </label>
+                    <label style="width: fit-content;" for="eta">Età<br>
+                        <input style="width: 50px; margin-right: 10px;" type="text" name="eta" >
+                    </label>
+                    <label style="width: fit-content;" for="peso">Peso<br>
+                        <input style="width: 50px; margin-right: 10px;" type="text" name="peso" >
+                    </label>
+                    <label style="width: fit-content;" for="altezza">Altezza<br>
+                        <input style="width: 80px; margin-right: 10px;" type="text" name="altezza" >
+                    </label>
+                    <label style="width: fit-content;" for="schema">Schema<br>
+                        <input style="width: 100px; margin-right: 10px;" type="text" name="schema" >
+                    </label>
+                    <label style="width: fit-content;" for="note">Note<br>
+                        <input style="width: 500px;" type="text" name="note" >
+                    </label>
+                </div>
+            </form>
+        </section>
+        <br>
+        <br>
+        <div class="titolo">
+            <div class="linea"></div>
+            <div class="titolo-testo workout">Workout personalizzato</div>
+            <div class="linea"></div>
+        </div>
+        <section class="container-schemi">
+            <div class="schema">
+                <div class="schema-titolo">
+                    <div class="appendice" style="left: 9px;"></div>
+                    <div class="appendice"></div>
+                    <div class="linea-schema"></div>
+                    <div class="sfera"></div>
+                    <h2 class="schema-titolo-sfera">A</h2>
+                    <h5>SCHEMA</h5>
+                </div>
+                <div class="schema-lista">
+                </div>
+                <div class="schema-controlli">
+                    <button onclick="eliminaSchema(event)"  class="elimina-schema">ELIMINA SCHEMA</button>
+                    <button onclick="aggiungiEsercizio(event)" class="aggiungi-esercizio">AGGIUNGI ESERCIZIO</button>
+                </div>
+            </div>
+        </section>
+        <div class="cta-nuovo-schema">
+            <button onclick="nuovoSchema()"><i class="fas fa-plus"></i></button>
+            <p>Aggiungi nuovo schema</p>
+        </div>
+        <br>
+        <br>
+        <button id="stampaPDF">Scarica PDF <i class="far fa-file-pdf"></i></button>
+        <br>
+        <br>
+        
+        <!-- TEMPLATE-->
+        <div style="display: none;" class="card">
+            <img src="assets/img/1.png" alt="">
+            <h4>ESERCIZIO</h4>
+            <div class="card-tabella">
+                <div class="tabella">
+                    <!---->
+                    <div class="tabella-titolo">SERIE</div>
+                    <div class="tabella-titolo">RIPETIZIONI</div>
+                    <div class="tabella-titolo">RIPOSO</div>
+                    <!---->
+                    <div class="tabella-dati bg1 serie1" id="popupSerie1">4</div>
+                    <div class="tabella-dati bg1 ripetizioni1" >8/8/8/8</div>
+                    <div class="tabella-dati bg1 riposo1" >30s</div>
+                    <!---->
+                    <div class="tabella-dati bg2 serie2" >4</div>
+                    <div class="tabella-dati bg2 ripetizioni2" >8/8/8/8</div>
+                    <div class="tabella-dati bg2 riposo2" >30s</div>
+                    <!---->
+                    <div class="tabella-dati bg1 serie3" >4</div>
+                    <div class="tabella-dati bg1 ripetizioni3" >8/8/8/8</div>
+                    <div class="tabella-dati bg1 riposo3" >30s</div>
+                    <!---->
+                    <div class="tabella-dati bg2 serie4" >4</div>
+                    <div class="tabella-dati bg2 ripetizioni4" >8/8/8/8</div>
+                    <div class="tabella-dati bg2 riposo4" >30s</div>
+                </div>
+            </div>
+            <button onclick="eliminaEsercizio(event)" class="elimina-esercizio"><i class="far fa-trash-alt"></i></button>
+        </div>
+        <div class="popup-container" style="display: none;">
+            <div class="popup">
+                <div class="form">
+                    <form class="esercizi-lista" name="popup">
+                        <h3>Seleziona un esercizio dalla lista:</h3>
+                        <select name="lista-esercizi" id="lista-esercizi"></select>
+                    </form>
+                </div>
+                <div class="popup-tabella">
+                    <h3>Inserisci i dati relativi all'esercizio:</h3>
+                    <div class="popup-tabella-inner">
+                        <!---->
+                        <div class="tabella-titolo">SETT.</div>
+                        <div class="tabella-titolo">SERIE</div>
+                        <div class="tabella-titolo">RIPETIZIONI</div>
+                        <div class="tabella-titolo">RIP</div>
+                        <!---->
+                        <div class="cella1">1</div>
+                        <input style="background-color: var(--bg1);" type="text" class="serie1">
+                        <input style="background-color: var(--bg1);" type="text" class="ripetizioni1">
+                        <input style="background-color: var(--bg1);" type="text" class="riposo1">
+                        <!---->
+                        <div class="cella2">2</div>
+                        <input style="background-color: var(--bg2);" type="text" class="serie2">
+                        <input style="background-color: var(--bg2);" type="text" class="ripetizioni2">
+                        <input style="background-color: var(--bg2);" type="text" class="riposo2">
+                        <!---->
+                        <div class="cella1">3</div>
+                        <input style="background-color: var(--bg1);" type="text" class="serie3">
+                        <input style="background-color: var(--bg1);" type="text" class="ripetizioni3">
+                        <input style="background-color: var(--bg1);" type="text" class="riposo3">
+                        <!---->
+                        <div class="cella2">4</div>
+                        <input style="background-color: var(--bg2);" type="text" class="serie4">
+                        <input style="background-color: var(--bg2);" type="text" class="ripetizioni4">
+                        <input style="background-color: var(--bg2);" type="text" class="riposo4">
+                    </div>
+                </div>
+                <div class="popup-controlli">
+                    <button class="annulla">ANNULLA</button>
+                    <button class="salva">SALVA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./assets/js/html2pdf.bundle.min.js"></script>
+<script src="./assets/js/html2canvas.js"></script>
+<script src="./assets/js/jquery-sortable.js"></script>
+<script src="./assets/js/Sortable.js"></script>
+<script src="./assets/js/app.JS" defer></script>
+<script src="./assets/js/printApp.js"></script>
+
+</body>
+</html>
